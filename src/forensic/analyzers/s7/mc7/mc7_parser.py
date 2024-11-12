@@ -159,7 +159,7 @@ class MC7Parser(object):
 
     def parse_non_db_block_segement(self):
         self._aggregated_buffer["used_block"] = []
-        if self._aggregated_buffer["segment"]:
+        if "segment" in self._aggregated_buffer.keys() and self._aggregated_buffer["segment"]:
             segment_br = BinaryReader(binascii.unhexlify(self._aggregated_buffer["segment"]))
             self._aggregated_buffer["segment_num"] = segment_br.read(uint16)
             pointer = 0
